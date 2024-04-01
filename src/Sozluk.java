@@ -13,7 +13,7 @@ public class Sozluk {
         // 4- Arama (Bu secekte verilen bir kelimeyle başlayan tüm kelimelerin manaları)
         // 5- Silme
         // 6- Çıkış
-        System.out.println("Hoş Geldiniz.");
+        System.out.println("Sözlük e Hoş Geldiniz.");
         System.out.println("Bu sözlükte yapabilecekliriniz:");
         System.out.println("1 - Ekleme\n2 - Düzeltme\n3 - Listeleme\n4 - Arama\n5 - Silme\n6 - Çıkış\n");
 
@@ -61,7 +61,7 @@ public class Sozluk {
                     break;
                 case 3:
                     if (dictionary.isEmpty()) {
-                        System.out.println("Listelenecek word bulunamadı.");
+                        System.out.println("Listelenecek kelime bulunamadı.");
                     }
                     for (Map.Entry<String, String> words : dictionary.entrySet()) {
                         System.out.println(words.getKey() + " : " + words.getValue());
@@ -72,12 +72,13 @@ public class Sozluk {
                     System.out.print("Aranacak Kelimeyi giriniz: ");
                     word = input.nextLine();
 
+                    for (Map.Entry<String,String> kk:dictionary.entrySet() ) {
 
-                    if (dictionary.containsKey(word)) {
-                        System.out.println(word + " kelimesinin anlamı : " + dictionary.get(word));
-                    } else {
-                        System.out.println("aradığınız word bulunamadı");
+                    if (kk.getKey().contains(word)) {
+                        System.out.println(kk.getKey() + " kelimesinin anlamı : " + kk.getValue());
                     }
+                    }
+
                     System.out.println();
                     break;
                 case 5:
